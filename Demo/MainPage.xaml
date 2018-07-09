@@ -12,7 +12,8 @@
         PositionSelectedCommand="{Binding MyCommand}"
         PositionSelected="Handle_PositionSelected"
         Scrolled="Handle_Scrolled"
-        Orientation="Horizontal">
+        Orientation="Horizontal"
+                            TransitionDuration="1000">
 
         <!--<cv:CarouselViewControl.ItemsSource>
            <x:Array Type="{x:Type View}">

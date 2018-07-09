@@ -35,7 +35,15 @@ namespace CarouselView.FormsPlugin.Abstractions
 		{
 			get { return (bool)GetValue(IsSwipeEnabledProperty); }
 			set { SetValue(IsSwipeEnabledProperty, value); }
-		}
+        }
+
+        public static readonly BindableProperty TransitionDurationProperty = BindableProperty.Create(nameof(TransitionDuration), typeof(int), typeof(CarouselViewControl), 100);
+
+        public int TransitionDuration
+        {
+            get { return (int)GetValue(TransitionDurationProperty); }
+            set { SetValue(TransitionDurationProperty, value); }
+        }
 
 		public static readonly BindableProperty IndicatorsTintColorProperty = BindableProperty.Create("IndicatorsTintColor", typeof(Color), typeof(CarouselViewControl), Color.Silver);
 

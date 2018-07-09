@@ -4,7 +4,9 @@ using Android.Content;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using Android.Widget;
 using CarouselView.FormsPlugin.Abstractions;
+using CarouselView.FormsPlugin.Android.Implementation;
 
 namespace CarouselView.FormsPlugin.Android
 {
@@ -57,6 +59,11 @@ namespace CarouselView.FormsPlugin.Android
             return false;
         }
 
+        public void SetTransitionDuration(int duration)
+        {
+            CustomScroller = new CustomSpeedScroller(this.Context) { TransitionDuration = duration };
+        }
+
         public void SetPagingEnabled(bool enabled)
         {
             this.isSwipeEnabled = enabled;
@@ -65,6 +72,31 @@ namespace CarouselView.FormsPlugin.Android
         public void SetElement(CarouselViewControl element)
         {
             this.Element = element;
+        }
+
+
+
+        Scroller _customScroller;
+
+        public Scroller CustomScroller
+        {
+            get
+            {
+                return _customScroller;
+            }
+
+            set
+            {
+                IntPtr ViewPagerClass = JNIEnv.FindClass("android/support/v4/view/ViewPager");
+                IntPtr mScrollerProperty = JNIEnv.GetFieldID(ViewPagerClass, "mScroller", "Landroid/widget/Scroller;");
+
+                if (value != null)
+                {
+                    JNIEnv.SetField(this.Handle, mScrollerProperty, value.Handle);
+                }
+
+                _customScroller = value;
+            }
         }
     }
 }

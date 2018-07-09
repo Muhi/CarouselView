@@ -253,6 +253,9 @@ namespace CarouselView.FormsPlugin.Android
                 case "BackgroundColor":
                     viewPager.SetBackgroundColor(Element.BackgroundColor.ToAndroid());
                     break;
+                case "TransitionDuration":
+                    SetTransitionDuration();
+                    break;
                 case "IsSwipeEnabled":
                     SetIsSwipeEnabled();
                     break;
@@ -420,6 +423,8 @@ namespace CarouselView.FormsPlugin.Android
             viewPager.PageScrollStateChanged += ViewPager_PageScrollStateChanged;
             viewPager.PageScrolled += ViewPager_PageScrolled;
 
+            SetTransitionDuration();
+
             // IsSwipeEnabled BP
             SetIsSwipeEnabled();
 
@@ -434,6 +439,11 @@ namespace CarouselView.FormsPlugin.Android
             // INDICATORS
             indicators = nativeView.FindViewById<CirclePageIndicator>(Resource.Id.indicator);
             SetIndicators();
+        }
+
+        void SetTransitionDuration()
+        {
+            ((IViewPager)viewPager)?.SetTransitionDuration(Element.TransitionDuration);
         }
 
         void SetIsSwipeEnabled()

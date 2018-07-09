@@ -17,7 +17,7 @@
     <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <ReleaseVersion>3.1.1</ReleaseVersion>
     <AndroidTlsProvider>
     </AndroidTlsProvider>
@@ -130,6 +130,7 @@
     <Compile Include="KeyboardService\SoftKeyboardEventArgs.cs" />
     <Compile Include="Implementation\VerticalViewPager.cs" />
     <Compile Include="Implementation\IViewPager.cs" />
+    <Compile Include="Implementation\CustomSpeedScroller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
