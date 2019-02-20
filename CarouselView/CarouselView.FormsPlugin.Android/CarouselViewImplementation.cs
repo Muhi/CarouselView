@@ -266,7 +266,7 @@ namespace CarouselView.FormsPlugin.Android
                     indicators?.SetPageColor(Element.CurrentPageIndicatorTintColor.ToAndroid());
                     break;
                 case "IndicatorsShape":
-                    indicators?.SetStyle((int)Element.IndicatorsShape);
+                    indicators?.SetStyle((Com.ViewPagerIndicator.IndicatorsShape)Enum.Parse(typeof(Abstractions.IndicatorsShape), Element.IndicatorsShape.ToString()));
                     break;
                 case "ShowIndicators":
                     SetIndicators();
@@ -549,7 +549,7 @@ namespace CarouselView.FormsPlugin.Android
                 indicators?.SetPageColor(Element.CurrentPageIndicatorTintColor.ToAndroid());
 
                 // IndicatorsShape BP
-                indicators?.SetStyle((int)Element.IndicatorsShape); // Rounded or Squared
+                indicators?.SetStyle((Com.ViewPagerIndicator.IndicatorsShape)Enum.Parse(typeof(Abstractions.IndicatorsShape), Element.IndicatorsShape.ToString())); // Rounded or Squared
             }
             else
             {
